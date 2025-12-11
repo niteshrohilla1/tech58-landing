@@ -1,0 +1,248 @@
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Modal Box */
+.modal-box {
+  width: 430px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 35px 32px 45px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 6px 40px rgba(0, 0, 0, 0.25);
+  background-image: url("../../assets/popup-bg.png");
+  background-size: 160px;
+  background-repeat: repeat;
+  animation: slideUp 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Smoother transitions */
+.smooth {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #444;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.15);
+  color: #111;
+}
+
+/* Logo */
+.modal-logo {
+  width: 120px;
+  margin-bottom: 8px;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+}
+
+.modal-subtitle {
+  margin-top: -5px;
+  margin-bottom: 22px;
+  font-size: 14px;
+  color: #102D4F;
+  font-weight: 700;
+}
+
+.input-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* PIN Section */
+.input-group-pin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pin-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.pin-box {
+  width: 48px;
+  height: 55px;
+  border-radius: 12px;
+  border: 1.5px solid #ccc;
+  text-align: center;
+  font-size: 22px;
+  transition: 0.25s ease;
+}
+
+.pin-box:focus {
+  border-color: #3b4a63;
+  box-shadow: 0 0 6px rgba(59, 74, 99, 0.5);
+}
+
+.pin-error {
+  border-color: red !important;
+}
+
+/* Eye toggle */
+.eye-toggle {
+  width: 26px;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: 0.2s ease;
+}
+
+.eye-toggle:hover {
+  opacity: 1;
+}
+
+/* Error */
+.error-text {
+  color: red;
+  font-weight: 600;
+  margin-top: -8px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Fade animation */
+.fade {
+  animation: fadeIn 0.3s ease;
+}
+
+.forgot-text {
+  text-align: right;
+  color: #3b4a63;
+  font-weight: 600;
+  margin: 10px 0 22px;
+  cursor: pointer;
+}
+
+.login-btn-modal {
+  width: 100%;
+  padding: 13px;
+  background: #3b4a63;
+  color: #fff;
+  border-radius: 12px;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.login-btn-modal:hover {
+  background: #2b3646;
+}
+
+/* Phone Input */
+.phone-input {
+  width: 100% !important;
+  height: 48px !important;
+  border-radius: 12px !important;
+  border: 1.5px solid #ccc !important;
+  padding-left: 55px !important;
+  font-size: 16px !important;
+}
+
+.phone-flag-btn {
+  border-radius: 12px 0 0 12px !important;
+}
+
+.phone-dropdown {
+  max-height: 200px !important;
+  overflow-y: auto !important;
+  z-index: 999999 !important;
+}
+
+/* Smooth Appearing Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Shake */
+.shake {
+  animation: shakeAnim 0.4s ease;
+}
+
+@keyframes shakeAnim {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-8px);
+  }
+
+  40% {
+    transform: translateX(8px);
+  }
+
+  60% {
+    transform: translateX(-6px);
+  }
+
+  80% {
+    transform: translateX(6px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .modal-box {
+    width: 92%;
+    padding: 28px 25px 35px;
+  }
+
+  .pin-box {
+    width: 42px;
+    height: 48px;
+  }
+}

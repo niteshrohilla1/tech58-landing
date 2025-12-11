@@ -1,0 +1,27 @@
+@import './components/Header/Header.css';
+@import './components/Hero/Hero.css';
+@import './components/AllProducts/AllProducts.css';
+@import './components/LoginModal/LoginModal.css';
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+* {
+    transition: color 0.15s ease-in-out background-color 0.15s ease-in-out;
+}
+
+h1 {
+    margin: 0;
+}
+
+.my-4 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+*{
+    box-sizing: border-box;
+}

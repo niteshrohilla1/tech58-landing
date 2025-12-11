@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import './App.css';
+body {
+  font-family: "Public Sans", sans-serif;
+  background-color: #ffffff;
+  color: #102D4F;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  background-image: url('./assets/bg-body.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+}
