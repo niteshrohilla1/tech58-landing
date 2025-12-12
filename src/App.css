@@ -2,6 +2,9 @@
 @import './components/Hero/Hero.css';
 @import './components/AllProducts/AllProducts.css';
 @import './components/LoginModal/LoginModal.css';
+@import './components/SignUpModal/SignUpModal.css';
+@import './components/About/About.css';
+@import './components/HR58Section/HR58Section.css';
 .app-container {
     display: flex;
     flex-direction: column;

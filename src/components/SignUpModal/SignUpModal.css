@@ -1,0 +1,239 @@
+.signup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    overflow-y: auto;
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+}
+
+
+.signup-box {
+    width: 440px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 35px 35px 40px;
+    position: relative;
+    animation: slideUp 0.35s ease;
+    background-image: url("../../assets/popup-bg.png");
+    background-repeat: repeat;
+    background-size: 150px;
+    box-shadow: 0px 6px 40px rgba(0, 0, 0, 0.2);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.signup-close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: none;
+    border: 0;
+    font-size: 28px;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.signup-close:hover {
+    transform: scale(1.2);
+    color: #000;
+}
+
+.signup-logo {
+    width: 160px;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.signup-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.signup-input-group {
+    margin-bottom: 16px;
+}
+
+.signup-input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+.signup-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1.5px solid #c8ccd3;
+    font-size: 15px;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+.signup-input:focus {
+    border-color: #3b4a63;
+    box-shadow: 0 0 5px rgba(59, 74, 99, 0.4);
+}
+
+.signup-phone-container {
+    width: 100%;
+}
+
+.signup-phone-input {
+    width: 100% !important;
+    height: 46px !important;
+    border-radius: 10px !important;
+    padding-left: 55px !important;
+    font-size: 15px !important;
+    border: 1.5px solid #c8ccd3 !important;
+}
+
+.signup-phone-flag {
+    border-radius: 10px 0 0 10px !important;
+}
+
+.signup-phone-dropdown {
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    z-index: 999999 !important;
+}
+
+.signup-checkbox {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: #333;
+    align-items: flex-start;
+}
+
+.signup-checkbox input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.signup-btn {
+    width: 140px;
+    margin: 20px auto 0 auto;
+    display: block;
+    padding: 12px 0;
+    background: #0d2b52;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.signup-btn:hover {
+    background: #081c36;
+}
+
+.otp-box {
+    margin-top: 20px;
+    padding: 18px 20px;
+    background: #f5f3ef;
+    border-radius: 12px;
+}
+
+.otp-box label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.otp-input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.otp-input {
+    width: 48px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1.8px solid #ccd1d8;
+    background: white;
+    transition: 0.25s ease;
+}
+
+.otp-input:focus {
+    border-color: #0d2b52;
+    box-shadow: 0 0 6px rgba(13, 43, 82, 0.35);
+    transform: scale(1.04);
+}
+
+.otp-input.success {
+    border-color: #28a745;
+    background: #e9fbe9;
+}
+
+.signup-final-animate {
+    animation: slideUp 0.3s ease;
+}
+
+.verify-btn {
+    width: 150px;
+    margin: 18px auto 0;
+    display: block;
+    padding: 12px 0;
+    background: #0d2b52;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.verify-btn:hover {
+    background: #081c36;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-box {
+        width: 92%;
+        padding: 25px;
+    }
+}

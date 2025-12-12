@@ -1,150 +1,169 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import logo from "../../assets/tech-logo.png";
-
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import logo from "../../assets/tech-logo.png";
+import "./SignupModal.css";
 
-// Eye Open Icon
-const eyeSvg = `
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-viewBox="0 0 24 24" fill="none" stroke="currentColor"
-stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-<circle cx="12" cy="12" r="3"/>
-</svg>
-`;
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const eyeClosedSvg = `
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-viewBox="0 0 24 24" fill="none" stroke="currentColor"
-stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/>
-<line x1="4" y1="4" x2="20" y2="20"/>
-</svg>
-`;
-
-export default function LoginModal({ open, onClose }) {
+export default function SignupModal({ open, onClose }) {
     if (!open) return null;
-
-    const [showPin, setShowPin] = useState(false);
-    const [pinValues, setPinValues] = useState(Array(6).fill(""));
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [mobileNumber, setMobileNumber] = useState("");
-    const [pinError, setPinError] = useState(false);
-    const [shake, setShake] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
+    const [check1, setCheck1] = useState(false);
+    const [check2, setCheck2] = useState(false);
+    const [errors, setErrors] = useState({});
+    const [otpSent, setOtpSent] = useState(false);
+    const [otpValues, setOtpValues] = useState(Array(6).fill(""));
+    const notifyError = (msg) => toast.error(msg);
+    const notifySuccess = (msg) => toast.success(msg);
 
-    const pinRefs = Array.from({ length: 6 }, () => useRef());
+    const handleOtpChange = (value, index, e) => {
+        if (/[^0-9]/.test(value)) return;
 
-    const handlePinInput = (e, index) => {
-        setPinError(false);
-        const value = e.target.value.replace(/\D/g, "");
-
-        const updated = [...pinValues];
+        const updated = [...otpValues];
         updated[index] = value;
-        setPinValues(updated);
-
-        if (value && index < 5) pinRefs[index + 1].current.focus();
-        else if (!value && index > 0) pinRefs[index - 1].current.focus();
+        setOtpValues(updated);
+        if (value && index < 5) {
+            document.getElementById(`otp-${index + 1}`).focus();
+        }
+        if (!value && e.key === "Backspace" && index > 0) {
+            document.getElementById(`otp-${index - 1}`).focus();
+        }
     };
 
-    const triggerShake = () => {
-        setShake(false);
-        setTimeout(() => setShake(true), 10);
+    const handleSendOTP = () => {
+        let newErrors = {};
+        if (!firstName.trim()) {
+            newErrors.firstName = "Please enter first name";
+            notifyError("First name is required & Mobile Number Required");
+        } else if (!mobileNumber.trim() || mobileNumber.length < 10) {
+            newErrors.mobileNumber = "Please enter valid phone number";
+            notifyError("Enter a valid mobile number");
+        } else if (!check1) {
+            newErrors.check1 = "Required";
+            notifyError("Accept Terms & Conditions");
+        } else if (!check2) {
+            newErrors.check2 = "Required";
+            notifyError("Accept Privacy Policy");
+        }
+
+        setErrors(newErrors);
+        if (Object.keys(newErrors).length > 0) {
+            return;
+        }
+
+        notifySuccess("OTP Sent Successfully!");
+        setOtpSent(true);
     };
 
-    const handleLogin = () => {
-        const pin = pinValues.join("");
 
-        if (!mobileNumber) {
-            triggerShake();
-            setErrorMessage("Please enter mobile number");
+    const handleVerifyOTP = () => {
+        const otp = otpValues.join("");
+
+        if (otp.length !== 6) {
+            notifyError("Enter valid 6-digit OTP");
             return;
         }
 
-        if (mobileNumber.length < 12) {
-            triggerShake();
-            setErrorMessage("Enter valid mobile number");
-            return;
-        }
+        notifySuccess("OTP Verified Successfully!");
 
-        if (!pin) {
-            triggerShake();
-            setErrorMessage("Please enter PIN");
-            return;
-        }
-
-        if (pin !== "123456") {
-            setPinError(true);
-            triggerShake();
-            setErrorMessage("Incorrect PIN, Try again.");
-            return;
-        }
-
-        setErrorMessage("");
-        alert("Login successful!");
+        setTimeout(() => {
+            notifySuccess("Signup Completed!");
+            onClose();
+        }, 1200);
     };
 
     return ReactDOM.createPortal(
-        <div className="modal-overlay" onClick={onClose}>
-            <div
-                className={`modal-box smooth ${shake ? "shake" : ""}`}
-                onClick={(e) => e.stopPropagation()}
-            >
-                <button className="close-btn" onClick={onClose}>×</button>
-
-                <img src={logo} alt="Tech58" className="modal-logo" />
-                <h2 className="modal-title">Welcome Back</h2>
-                <p className="modal-subtitle">Login to continue</p>
-                
-                <div className="input-group">
-                    <label>Mobile Number<span style={{ color: '#fe0000' }}>*</span></label>
-                    <PhoneInput
-                        country={"in"}
-                        value={mobileNumber}
-                        onChange={(value) => setMobileNumber(value)}
-                        inputClass="phone-input"
-                        buttonClass="phone-flag-btn"
-                        containerClass="phone-container"
-                        dropdownClass="phone-dropdown"
-                    />
-                </div>
-
-                <div className="input-group">
-                    <div className="input-group-pin">
-                        <label>PIN<span style={{ color: '#fe0000' }}>*</span></label>
-                        <span
-                            className="eye-toggle"
-                            onClick={() => setShowPin(!showPin)}
-                            dangerouslySetInnerHTML={{
-                                __html: showPin ? eyeClosedSvg : eyeSvg,
-                            }}
+        <div className="signup-overlay" onClick={onClose}>
+            <div className="signup-box" onClick={(e) => e.stopPropagation()}>
+                <button className="signup-close" onClick={onClose}>×</button>
+                <img src={logo} alt="Tech58" className="signup-logo" />
+                <h2 className="signup-title">My Sign Up Page</h2>
+                <>
+                    <div className="signup-input-group">
+                        <label>First Name*</label>
+                        <input
+                            type="text"
+                            placeholder="Enter First name"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            className={`signup-input ${errors.firstName ? "error" : ""}`}
                         />
                     </div>
-
-                    <div className="pin-wrapper">
-                        {pinRefs.map((ref, i) => (
-                            <input
-                                key={i}
-                                maxLength="1"
-                                ref={ref}
-                                type={showPin ? "text" : "password"}
-                                placeholder="•"
-                                className={`pin-box ${pinError ? "pin-error" : ""}`}
-                                value={pinValues[i]}
-                                onChange={(e) => handlePinInput(e, i)}
-                            />
-                        ))}
+                    <div className="signup-input-group">
+                        <label>Last Name*</label>
+                        <input
+                            type="text"
+                            placeholder="Enter Last name"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            className={`signup-input ${errors.lastName ? "error" : ""}`}
+                        />
                     </div>
-                </div>
-
-                {errorMessage && <div className="error-text fade">{errorMessage}</div>}
-
-                <div className="forgot-text">Forgot PIN?</div>
-
-                <button className="login-btn-modal" onClick={handleLogin}>
-                    Log In
-                </button>
+                    <div className="signup-input-group">
+                        <label>Mobile number*</label>
+                        <PhoneInput
+                            country={"in"}
+                            value={mobileNumber}
+                            onChange={(value) => setMobileNumber(value)}
+                            inputClass={`signup-phone-input ${errors.mobileNumber ? "error" : ""}`}
+                            buttonClass="signup-phone-flag"
+                            containerClass="signup-phone-container"
+                        />
+                    </div>
+                    <div className="signup-checkbox">
+                        <input
+                            type="checkbox"
+                            checked={check1}
+                            onChange={() => setCheck1(!check1)}
+                        />
+                        <span>
+                            I have read & understood <b>Terms of Use & Privacy Policy</b>.
+                        </span>
+                    </div>
+                    <div className="signup-checkbox">
+                        <input
+                            type="checkbox"
+                            checked={check2}
+                            onChange={() => setCheck2(!check2)}
+                        />
+                        <span>I accept the Terms of Use & Privacy Policy.</span>
+                    </div>
+                    {otpSent && (
+                        <div className="otp-box">
+                            <label>Enter OTP*</label>
+                            <div className="otp-input-row">
+                                {otpValues.map((v, i) => (
+                                    <input
+                                        key={i}
+                                        id={`otp-${i}`}
+                                        type="number"
+                                        maxLength={1}
+                                        value={v}
+                                        onChange={(e) => handleOtpChange(e.target.value, i, e)}
+                                        onKeyDown={(e) => handleOtpChange(e.target.value, i, e)}
+                                        className="otp-input"
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {!otpSent && (
+                        <button className="signup-btn" onClick={handleSendOTP}>
+                            Send OTP
+                        </button>
+                    )}
+                    {otpSent && (
+                        <button className="verify-btn" onClick={handleVerifyOTP}>
+                            Verify OTP
+                        </button>
+                    )}
+                </>
+                <ToastContainer position="top-center" autoClose={2500} />
             </div>
         </div>,
         document.body

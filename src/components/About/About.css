@@ -1,0 +1,153 @@
+/* MAIN LAYOUT */
+.collage-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  gap: 60px;
+  padding: 60px 5%;
+  width: 85%;
+}
+
+.collage-images {
+  position: relative;
+  width: 430px;
+  height: 430px;
+  background-image: url('../../assets/About/pattern01.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.img {
+  position: absolute;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.img:hover {
+  transform: scale(1.04) rotate(3deg);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.img-top-left {
+  width: 170px;
+  height: 120px;
+  top: 10px;
+  left: 15px;
+  transform: rotate(-3deg);
+}
+
+.img-top-right {
+  width: 200px;
+  height: 140px;
+  top: 55px;
+  right: 5px;
+  transform: rotate(2deg);
+}
+
+.img-bottom {
+  width: 340px;
+  height: 250px;
+  bottom: 10px;
+  left: 45px;
+  transform: rotate(-1deg);
+}
+
+.collage-text {
+  max-width: 480px;
+}
+
+.title-deco {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.title-deco .blue {
+  width: 53px;
+  height: 4px;
+  background: #003f95;
+  border-radius: 2px;
+}
+
+.title-deco .red {
+  width: 53px;
+  height: 4px;
+  background: #e04545;
+  border-radius: 2px;
+  margin-left: -3px;
+}
+
+.collage-text h2 {
+  font-size: 44px;
+  color: #0c2340;
+  line-height: 110%;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.collage-text p {
+  color: #444;
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+
+@media (max-width: 992px) {
+  .collage-container {
+    flex-direction: column;
+    /* text-align: center; */
+  }
+
+  .collage-text {
+    max-width: 95%;
+  }
+
+  .collage-images {
+    width: 330px;
+    height: 330px;
+  }
+
+  .img-top-left {
+    width: 140px;
+    height: 100px;
+  }
+
+  .img-top-right {
+    width: 160px;
+    height: 120px;
+  }
+
+  .img-bottom {
+    width: 260px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .collage-text h2 {
+    font-size: 32px;
+  }
+
+  .collage-images {
+    width: 280px;
+    height: 280px;
+  }
+
+  .img-top-left {
+    width: 120px;
+    height: 90px;
+  }
+
+  .img-top-right {
+    width: 140px;
+    height: 100px;
+  }
+
+  .img-bottom {
+    width: 220px;
+    height: 160px;
+  }
+}
