@@ -1,24 +1,22 @@
 .header {
-    padding: 72px 0 16px;
     width: 100%;
+    padding: 32px 0 16px;
+    box-sizing: border-box;
 }
 
 .navbar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     width: 100%;
-    position: relative;
 }
 
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 75%;
+    max-width: 1180px;
     width: 100%;
-    box-sizing: border-box;
+    padding: 0 6%;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .titles {
@@ -67,10 +65,6 @@
     color: #fff;
 }
 
-/* .signup-btn-header:hover {
-    color: #0d6efd;
-} */
-
 .mobile-toggle img {
     width: 24px;
     height: 24px;
@@ -94,11 +88,12 @@
 }
 
 .mobile-menu {
-    width: 75%;
+    width: 100%;
+    max-width: 1180px;
+    padding: 16px 6%;
+    margin-top: 12px;
     display: flex;
     flex-direction: column;
-    padding: 16px 24px;
-    margin-top: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transform: translateY(-20px);
     opacity: 0;
@@ -106,7 +101,6 @@
     pointer-events: none;
     border-bottom: 1px solid #d1d1d1;
 }
-
 
 .mobile-menu-wrapper.open .mobile-menu {
     transform: translateY(0);
@@ -132,7 +126,7 @@
 }
 
 .titles-mobile span:nth-child(2) {
-    transition-delay: 0.1s;
+    transition-delay: 0.10s;
 }
 
 .titles-mobile span:nth-child(3) {
@@ -140,7 +134,7 @@
 }
 
 .btn-container-mobile div:nth-child(1) {
-    transition-delay: 0.2s;
+    transition-delay: 0.20s;
 }
 
 .btn-container-mobile div:nth-child(2) {
@@ -150,7 +144,6 @@
 .titles-mobile {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     width: 100%;
 }
 
@@ -168,22 +161,13 @@
     margin-top: 16px;
 }
 
-.btn-container-mobile {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 16px;
-}
-
 .btn-container-mobile .login-btn,
 .btn-container-mobile .signup-btn-header {
     width: auto;
     padding: 8px 16px;
     align-self: flex-start;
-    font-size: 15px;
     margin: 4px 0;
 }
-
 
 @media (max-width: 992px) {
     .desktop-only {

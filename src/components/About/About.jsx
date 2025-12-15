@@ -10,9 +10,8 @@ export default function About() {
           <span className="blue"></span>
           <span className="red"></span>
         </div>
-        <h2>
-          Empowering Your Business for  Success
-        </h2>
+
+        <h2>Empowering Your Business for Success</h2>
 
         <p>
           At Tech58, we're dedicated to empowering businesses for success.
@@ -26,10 +25,11 @@ export default function About() {
         </p>
       </div>
       <div className="collage-images">
-        <img src={emp3} alt="top-left" className="img img-top-left" />
-        <img src={emp2} alt="top-right" className="img img-top-right" />
-        <img src={emp1} alt="bottom" className="img img-bottom" />
+        <img src={emp3} alt="Decoration 1" className="img img-top-left" />
+        <img src={emp2} alt="Decoration 2" className="img img-top-right" />
+        <img src={emp1} alt="Main collage image" className="img img-bottom" />
       </div>
+
     </section>
   );
 }

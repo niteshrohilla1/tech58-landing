@@ -1,10 +1,13 @@
 .slider-mask {
     width: 100%;
     overflow: hidden;
+    display: flex;
+    justify-content: center; 
 }
 
 .slider-wrapper {
-    width: 90%;
+    max-width: 1180px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     padding: 105px 0px 65px;
@@ -21,6 +24,7 @@
 }
 
 .slider-images {
+    width: 100%;
     display: flex;
     transition: transform 0.55s ease-in-out;
     align-items: flex-start;

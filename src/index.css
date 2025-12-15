@@ -12,3 +12,6 @@ body {
   background-size: cover;
   margin: 0;
 }
+html {
+  scroll-behavior: smooth;
+}

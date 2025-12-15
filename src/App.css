@@ -4,7 +4,8 @@
 @import './components/LoginModal/LoginModal.css';
 @import './components/SignUpModal/SignUpModal.css';
 @import './components/About/About.css';
-@import './components/HR58Section/HR58Section.css';
+@import './components/Product58/HR58Section.css';
+@import './components/Footer/Footer.css';
 .app-container {
     display: flex;
     flex-direction: column;
@@ -27,4 +28,11 @@ h1 {
 }
 *{
     box-sizing: border-box;
+}
+.section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }

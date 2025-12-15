@@ -1,0 +1,159 @@
+.footer58 {
+  padding: 80px 6% 30px;
+  font-family: "Inter", sans-serif;
+  color: #0b2545;
+}
+
+.footer58-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+.footer58-box {
+  flex: 1;
+  text-align: center;
+}
+
+.footer58-box h4 {
+  margin: 16px 0 10px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #102D4F;
+}
+
+.footer58-box p,
+.footer58-box a {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #8A99B4;
+  text-decoration: none;
+}
+
+.footer58-box a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.footer58-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto;
+  background: #0b2545;
+  color: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer58-divider {
+  width: 1px;
+  background: #9fb0c5;
+  height: 120px;
+  margin-top: 20px;
+}
+
+
+.footer58-links {
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto 70px;
+}
+
+.footer58-links nav h5 {
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.footer58-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer58-links li {
+  margin-bottom: 8px;
+}
+
+.footer58-links a {
+  font-size: 14px;
+  color: #0b2545;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer58-links a:hover {
+  text-decoration: underline;
+}
+
+.footer58-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: #6b7c93;
+}
+
+.footer58-bottom img {
+  height: 18px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.footer58-top-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: #0b2545;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}
+
+
+@media (max-width: 725px) {
+  .footer58-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer58-divider {
+    display: none;
+  }
+
+  .footer58-links {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    gap: 100px;
+  }
+
+  .footer58-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

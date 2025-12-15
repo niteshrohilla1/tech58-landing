@@ -1,5 +1,10 @@
+
 .hero-wrapper {
-    max-width: 75%;
+    width: 100%;
+    padding: 60px 6%; 
+    box-sizing: border-box;
+    max-width: 1180px;
+    margin: 0 auto;
 }
 
 .hero-container {
@@ -9,7 +14,7 @@
     gap: 40px;
 }
 
-.hero-container>div:last-child {
+.hero-container > div:last-child {
     display: flex;
     justify-content: center;
 }
@@ -17,7 +22,6 @@
 .hero-content {
     padding: 90px 0 64px;
 }
-
 
 .btn-buy {
     font-size: 15px;
@@ -31,19 +35,15 @@
     background-color: #102D4F;
     color: #fff;
 }
-
 .btn-buy:hover {
     background-color: #0b1f37;
-    ;
 }
-
 .img-fluid {
     width: 100%;
     height: auto;
+    max-width: 620px; 
     object-fit: contain;
-    max-width: 600px;
 }
-
 
 .text-preset-1 {
     font-size: 64px;
@@ -57,13 +57,11 @@
     overflow: hidden;
     height: 64px;
     vertical-align: bottom;
-    white-space: nowrap;
 }
 
 .scroll-words {
     display: flex;
     flex-direction: column;
-    white-space: nowrap;
     animation: scrollUp 8s infinite;
 }
 
@@ -71,53 +69,55 @@
     height: 64px;
     display: flex;
     align-items: center;
-    white-space: nowrap;
 }
 
 @keyframes scrollUp {
-    0% {
-        transform: translateY(0);
-    }
-
-    20% {
-        transform: translateY(-64px);
-    }
-
-    40% {
-        transform: translateY(-128px);
-    }
-
-    60% {
-        transform: translateY(-192px);
-    }
-
-    80% {
-        transform: translateY(-256px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+    0% { transform: translateY(0); }
+    20% { transform: translateY(-64px); }
+    40% { transform: translateY(-128px); }
+    60% { transform: translateY(-192px); }
+    80% { transform: translateY(-256px); }
+    100% { transform: translateY(0); }
 }
 
 @media (max-width: 991px) {
+    .hero-wrapper {
+        padding: 40px 6%;
+    }
+
     .text-preset-1 {
         white-space: normal;
+        font-size: 42px;
+        line-height: 1.15;
+    }
+
+    .scroll-wrapper {
+        height: 48px;
+    }
+    .scroll-words span {
+        height: 48px;
     }
 
     .hero-container {
         grid-template-columns: 1fr;
     }
 
-    .hero-container>div:last-child {
+    .hero-container > div:last-child {
         order: 2;
     }
 
     .hero-content {
         order: 1;
+        padding: 30px 0 10px;
     }
 
     .img-fluid {
-        max-width: 100%;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .text-preset-1 {
+        font-size: 34px;
     }
 }

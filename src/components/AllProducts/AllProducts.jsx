@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import iconLeft from '../../assets/left-chevron.svg';
+import iconRight from '../../assets/right-chevron.svg';
 
 function AllProducts() {
     const images = Object.values(
@@ -126,7 +128,9 @@ function AllProducts() {
     return (
         <div className="slider-wrapper">
             <div className="slider-container">
-                <button className="arrow-btn left" onClick={prevPage}>❮</button>
+                <button className="arrow-btn left" onClick={prevPage}>
+                    <img src={iconLeft} alt="left icon" />
+                </button>
 
                 <div
                     className="slider-mask"
@@ -162,7 +166,9 @@ function AllProducts() {
                     </div>
                 </div>
 
-                <button className="arrow-btn right" onClick={nextPage}>❯</button>
+                <button className="arrow-btn right" onClick={nextPage}>
+                    <img src={iconRight} alt="icon right" />
+                </button>
             </div>
 
             <div className="pagination">
