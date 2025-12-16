@@ -4,8 +4,9 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import logo from "../../assets/tech-logo.png";
 import "./SignupModal.css";
-
+import PrivacyPolicyModal from "../pages/Policy";
 import { ToastContainer, toast } from "react-toastify";
+import TermAndConditionModal from "../TermAndConditionModel/TermAndConditionModel";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function SignupModal({ open, onClose }) {
@@ -20,6 +21,9 @@ export default function SignupModal({ open, onClose }) {
     const [otpValues, setOtpValues] = useState(Array(6).fill(""));
     const notifyError = (msg) => toast.error(msg);
     const notifySuccess = (msg) => toast.success(msg);
+    const [openPolicy, setOpenPolicy] = useState(false);
+    const [openTermCondition, setOpenTermCondition] = useState(false);
+
 
     const handleOtpChange = (value, index, e) => {
         if (/[^0-9]/.test(value)) return;
@@ -122,7 +126,8 @@ export default function SignupModal({ open, onClose }) {
                             onChange={() => setCheck1(!check1)}
                         />
                         <span>
-                            I have read & understood <b>Terms of Use & Privacy Policy</b>.
+                            I have read & understood <b><span style={{ cursor: 'pointer' }} onClick={() => setOpenTermCondition(true)}>Terms of Use</span> &
+                                <span style={{ cursor: 'pointer' }} onClick={() => setOpenPolicy(true)}>Privacy Policy</span></b>.
                         </span>
                     </div>
                     <div className="signup-checkbox">
@@ -131,7 +136,8 @@ export default function SignupModal({ open, onClose }) {
                             checked={check2}
                             onChange={() => setCheck2(!check2)}
                         />
-                        <span>I accept the Terms of Use & Privacy Policy.</span>
+                        <span >I accept the <strong style={{ cursor: 'pointer' }} onClick={() => setOpenTermCondition(true)}>Terms of Use</strong>
+                            & <strong style={{ cursor: 'pointer' }} onClick={() => setOpenPolicy(true)}>Privacy Policy</strong>.</span>
                     </div>
                     {otpSent && (
                         <div className="otp-box">
@@ -165,6 +171,8 @@ export default function SignupModal({ open, onClose }) {
                 </>
                 <ToastContainer position="top-center" autoClose={2500} />
             </div>
+            {openPolicy && <PrivacyPolicyModal onClose={() => setOpenPolicy(false)} />}
+            {openTermCondition && <TermAndConditionModal onClose={() => setOpenTermCondition(false)} />}
         </div>,
         document.body
     );

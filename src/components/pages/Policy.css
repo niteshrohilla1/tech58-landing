@@ -1,0 +1,93 @@
+.policy-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.policy-modal {
+  background-image: url('../../assets/popup-bg.png');
+  width: 90%;
+  max-width: 900px;
+  max-height: 85vh;
+  border-radius: 12px;
+  padding: 30px 40px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+.policy-content {
+  margin-top: 20px;
+  overflow-y: auto;
+  max-height: 65vh;
+  padding-right: 10px;
+}
+
+.policy-modal h1 {
+  font-size: 28px;
+  color: #0b2545;
+}
+
+.policy-modal h2 {
+  margin-top: 26px;
+  font-size: 18px;
+  color: #102d4f;
+}
+
+.policy-modal p,
+.policy-modal li {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #5b6f8a;
+}
+
+.policy-modal ul {
+  margin-left: 18px;
+}
+
+.policy-updated {
+  font-size: 13px;
+  color: #8a99b4;
+}
+
+.policy-close {
+  position: absolute;
+  right: 18px;
+  top: 16px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #0b2545;
+}
+
+.policy-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: #0b2545;
+}
+
+.policy-link:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .policy-modal {
+    padding: 20px;
+  }
+}

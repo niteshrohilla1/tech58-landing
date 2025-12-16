@@ -1,28 +1,19 @@
 import './App.css'
-import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import AllProducts from './components/AllProducts/AllProducts';
-import About from './components/About/About';
-import AllProducts58Section from './components/Product58/AllProducts58Section';
-import Footer58 from './components/Footer/Footer58';
+import { Routes, Route } from 'react-router-dom'
+
+import Header from './components/Header/Header'
+import Home from './components/pages/Home'
+import Policy from './components/pages/Policy'
+
 function App() {
-
-
   return (
     <div className="app-container">
-      <Header></Header>
-      <div id="home" className="section section-home">
-        <Hero ></Hero>
-        <AllProducts />
-      </div>
+      <Header />
 
-      <div id="about" className="section" >
-        <About />
-      </div>
-      <div id="products" className="section">
-        <AllProducts58Section />
-        <Footer58 />
-      </div>
+      <Routes>
+        <Route path="/tech58-landing/" element={<Home />} />
+        <Route path="/privacy-policy" element={<Policy />} />
+      </Routes>
     </div>
   )
 }

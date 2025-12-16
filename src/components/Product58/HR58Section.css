@@ -88,6 +88,12 @@
     content: "";
     position: absolute;
     inset: 0;
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: min(47vw, 630px);
+    opacity: 0.25;
+    z-index: 0;
     pointer-events: none;
 }
 
@@ -97,12 +103,13 @@
     min-width: 420px;
     height: 500px;
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
     background-size: min(47vw, 630px);
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .hr58-main-wrapper {

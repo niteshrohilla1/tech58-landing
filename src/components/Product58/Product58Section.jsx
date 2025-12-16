@@ -38,8 +38,9 @@ function Product58Section({
 
                 <div
                     className="hr58-right"
-                    style={pattern ? { backgroundImage: `url(${pattern})` } : {}}
+                    style={pattern ? { "--bg-image": `url(${pattern})` } : {}}
                 >
+
                     <div className="hr58-main-wrapper">
                         <img
                             src={mainImg}

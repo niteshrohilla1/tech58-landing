@@ -3,6 +3,7 @@ import logo from '../../assets/tech-logo.png';
 import togglerIcon from '../../assets/toggler-icon.svg';
 import LoginModal from "../LoginModal/LoginModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
+import { Link } from "react-router-dom";
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -31,8 +32,9 @@ function Navbar() {
         <header className="header">
             <nav className="navbar">
                 <div className="container">
-
-                    <img src={logo} className="img-logo" alt="Tech58" />
+                    <Link to = '/tech58-landing/'>
+                        <img src={logo} className="img-logo" alt="Tech58" />
+                    </Link>
 
                     <div className="titles desktop-only">
                         <span onClick={() => scrollToSection("home")}>Home</span>
