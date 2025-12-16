@@ -221,6 +221,11 @@
 }
 
 @media (max-width: 992px) {
+    .hr58-right::before {
+        min-height: 360px;
+        background-size: contain;
+        opacity: 0.22;
+    }
     .hr58-left {
         order: 1;
     }
@@ -271,6 +276,13 @@
 }
 
 @media (max-width: 640px) {
+    @media (max-width: 640px) {
+    .hr58-right::before {
+        min-height: 280px;
+        background-size: contain;
+    }
+}
+
     .hr58-left {
         padding: 10px;
     }

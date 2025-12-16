@@ -7,6 +7,7 @@
 @import './components/Product58/HR58Section.css';
 @import './components/Footer/Footer.css';
 @import './components/pages/Policy.css';
+@import './components/pages/Faq/Faq.css';
 .app-container {
     display: flex;
     flex-direction: column;

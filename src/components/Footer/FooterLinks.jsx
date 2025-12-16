@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PrivacyPolicyModal from '../pages/Policy';
 import TermAndConditionModal from "../TermAndConditionModel/TermAndConditionModel";
+import { Link } from "react-router-dom";
 
 export default function FooterLinks() {
   const [openPolicy, setOpenPolicy] = useState(false);
@@ -33,7 +34,11 @@ export default function FooterLinks() {
         <nav>
           <h5>Help</h5>
           <ul>
-            <li><a href="/">FAQ</a></li>
+            <li>
+              <Link to='/tech58-landing/faq'>
+                FAQ
+              </Link>
+            </li>
           </ul>
         </nav>
 
