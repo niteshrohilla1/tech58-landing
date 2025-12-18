@@ -1,10 +1,13 @@
 import mainImg from '../../assets/main.gif';
+import { useState } from 'react';
+import LoginModal from '../LoginModal/LoginModal';
 
 function Hero() {
+    const [loginOpen, setLoginOpen] = useState(false);
     return (
         <section className="hero-wrapper">
             <div className="hero-container">
-                
+
                 <div className="hero-content">
                     <h1 className="text-preset-1">
                         <span>We Make </span>
@@ -26,7 +29,7 @@ function Hero() {
                         and focus on what really matters.
                     </p>
 
-                    <div className="btn-buy">Buy Now</div>
+                    <div className="btn-buy" onClick={() => setLoginOpen(true)}>Buy Now</div>
                 </div>
 
                 <div>
@@ -34,6 +37,7 @@ function Hero() {
                 </div>
 
             </div>
+            <LoginModal open={loginOpen} onClose={() => setLoginOpen(false)} />
         </section>
     );
 }
